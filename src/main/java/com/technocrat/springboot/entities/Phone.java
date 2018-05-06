@@ -1,19 +1,20 @@
 package com.technocrat.springboot.entities;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(indexName="phoneindex", type="phonetype")
+@Document(collection="phones")
 public class Phone {
 
 	@Id
 	private String id;
+	private String name;
 	private String phone;
 	
 	public Phone() {
 		
 	}
-	
+
 	public Phone(String id, String phone) {
 		super();
 		this.id = id;
@@ -32,6 +33,12 @@ public class Phone {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

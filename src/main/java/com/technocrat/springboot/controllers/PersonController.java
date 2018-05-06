@@ -21,7 +21,7 @@ public class PersonController {
 	private PersonService service;
 	
 	//For Debug Purpose
-	@RequestMapping("/connectioninfo")
+	@RequestMapping("persons/connectioninfo")
 	public Map<String, String> printConnectionInfo() {
 		return service.printElasticSearchInfo();
 	}
@@ -46,12 +46,12 @@ public class PersonController {
 		return service.deletePerson(id);
 	}
 	
-	@RequestMapping(value="/person", method=RequestMethod.GET)
+	@RequestMapping(value="/person/byname", method=RequestMethod.GET)
 	public List<Person> getByName(@RequestParam("name") String name) {
 		return service.getByName(name);
 	}
 	
-	@RequestMapping(value="/person/gender", method=RequestMethod.GET)
+	@RequestMapping(value="/person/bygender", method=RequestMethod.GET)
 	public List<Person> getByGender(@RequestParam("gender") String gender) {
 		return service.getByGender(gender);
 	}

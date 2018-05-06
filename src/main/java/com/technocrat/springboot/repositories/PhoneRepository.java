@@ -1,9 +1,15 @@
 package com.technocrat.springboot.repositories;
 
-import org.springframework.data.neo4j.repository.Neo4jRepository;
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.technocrat.springboot.entities.Phone;
 
-public interface PhoneRepository extends Neo4jRepository<Phone, String> {
+public interface PhoneRepository extends MongoRepository<Phone, String> {
+	
+	List<Phone> findByPhone(String phone);
+	
+	List<Phone> findByName(String name);
 
 }
